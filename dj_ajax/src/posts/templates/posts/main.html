@@ -4,6 +4,7 @@
 
 
 {% block scripts %}
+    <script src="{% static 'functions.js' %}" defer></script>
     <script src="{% static 'posts/main.js' %}" defer></script>
 {% endblock scripts %}
 
@@ -12,6 +13,8 @@ posts
 {% endblock title %}
 
 {% block content %}
+
+<div id="alert-box" class="mb-3"></div>
     <!-- Modal -->
 <div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -21,7 +24,7 @@ posts
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form method="POST" action="">
+            <form method="POST" action="" id="post-form">
                 {% csrf_token %}
                 {{form|crispy}}
               <div class="modal-footer">
@@ -34,6 +37,7 @@ posts
     </div>
   </div>    
 
+  <div id="alert-box"></div>
   <!-- Button trigger modal -->
 <button type="button" class="btn btn-info mb-2" data-bs-toggle="modal" data-bs-target="#addPostModal">
     add post
