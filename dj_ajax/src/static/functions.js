@@ -1,4 +1,4 @@
-window.handleAlerts = (type, msg) => {
+const handleAlerts = (type, msg) => {
     const alertBox = document.getElementById('alert-box')
     alertBox.innerHTML = ` 
         <div class="alert alert-${type}" role="alert">
