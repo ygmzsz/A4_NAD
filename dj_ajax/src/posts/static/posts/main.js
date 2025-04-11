@@ -9,7 +9,11 @@ const postForm = document.getElementById('post-form')
 const title = document.getElementById('id_title')
 const body = document.getElementById('id_body')
 const csrf = document.getElementsByName('csrfmiddlewaretoken')
-console.log('csrf', csrf)
+
+const addBtn = document.getElementById('add-btn')
+const closeBtn = [... document.getElementsByClassName('add-modal-close')]
+
+const dropzone = document.getElementById('my-dropzone')
 
 const url = window.location.href
 
@@ -161,9 +165,9 @@ postForm.addEventListener('submit', e=>{
                 </div> 
                 `)
                 likeUnlikePosts()
-                $('#addPostModal').modal('hide')
+                // $('#addPostModal').modal('hide')
                 handleAlerts('success', 'New Post added')
-                postForm.reset()
+                // postForm.reset()
         },
         error: function(error){
             console.log(error)
@@ -171,5 +175,16 @@ postForm.addEventListener('submit', e=>{
         }
     })
 })
+
+addBtn.addEventListener('click', ()=>{
+    dropzone.classList.remove('not-visible')
+})
+
+closeBtn.forEach(btn=> btn.addEventListener('click', ()=>{
+    postForm.reset()
+    if(!dropzone.classList.contains('not-visible')){
+        dropzone.classList.add('not-visible')
+    }
+}))
 
 getData()
