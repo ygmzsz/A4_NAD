@@ -1,6 +1,5 @@
 console.log("hello world!")
 
-
 const postBox = document.getElementById('posts-box')
 const spinnerBox = document.getElementById('spinner-box')
 const loadBtn = document.getElementById('load-btn')
@@ -154,8 +153,9 @@ postForm.addEventListener('submit', e=>{
                 </div> 
                 `)
                 likeUnlikePosts()
-                $('#addPostalModal').modal('hide')
+                $('#addPostModal').modal('hide')
                 handleAlerts('success', 'New Post added')
+                postForm.reset()
         },
         error: function(error){
             console.log(error)

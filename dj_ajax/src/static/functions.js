@@ -1,4 +1,4 @@
-const handleAlerts = (type, msg) => {
+window.handleAlerts = (type, msg) => {
     const alertBox = document.getElementById('alert-box')
     alertBox.innerHTML = ` 
         <div class="alert alert-${type}" role="alert">
@@ -7,4 +7,3 @@ const handleAlerts = (type, msg) => {
     `
 }
 
-window.handleAlerts = handleAlerts;
