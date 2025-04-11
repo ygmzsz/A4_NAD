@@ -41,6 +41,7 @@ const likeUnlikePosts = ()=>{
             },
             success: function(response){
                 console.log(response)
+                clickedBtn.textContent = response.liked ? `Unlike (${response.count})`: `Like (${response.count})`
             },
             error: function(error){
                 console.log(error)
@@ -75,7 +76,7 @@ const getData = () => {
                             </div>
                             <div class="col-2"> 
                                 <form class="like-unlike-forms" data-form-id="${element.id}">
-                                    <button href="#" class="btn btn-primary" id=like-unlike-${element.id}">${element.liked ? `Unlike (${element.count})`: `Like (${element.count})`}</button>
+                                    <button href="#" class="btn btn-primary" id="like-unlike-${element.id}">${element.liked ? `Unlike (${element.count})`: `Like (${element.count})`}</button>
                                 </form>      
                             </div>
                         </div>        
